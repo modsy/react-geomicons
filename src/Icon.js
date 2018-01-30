@@ -1,37 +1,35 @@
-
-import React from 'react'
-import paths from 'geomicons-open'
+import React from "react";
+import PropTypes from "prop-types";
+import paths from "geomicons-open";
 
 const Icon = ({
-  name = 'warning',
-  size = '1em',
-  fill = 'currentColor',
+  name = "warning",
+  size = "1em",
+  fill = "currentColor",
   width,
   height,
   ...props
 }) => {
-  const path = paths[name]
+  const path = paths[name];
 
   return (
-    <svg {...props}
+    <svg
+      {...props}
       width={width || size}
       height={height || size}
       fill={fill}
       data-id={`geomicon-${name}`}
-      viewBox='0 0 32 32'>
+      viewBox="0 0 32 32"
+    >
       <path d={path} />
     </svg>
-  )
-}
+  );
+};
 
 Icon.propTypes = {
-  name: React.PropTypes.oneOf(Object.keys(paths)),
-  size: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number
-  ]),
-  fill: React.PropTypes.string
-}
+  name: PropTypes.oneOf(Object.keys(paths)),
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  fill: PropTypes.string
+};
 
-export default Icon
-
+export default Icon;
